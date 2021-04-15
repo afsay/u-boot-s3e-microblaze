@@ -395,6 +395,7 @@
 #define XPAR_XPS_TIMER_0_BASEADDR 0x83C00000
 #define XPAR_XPS_TIMER_0_HIGHADDR 0x83C0FFFF
 #define XPAR_XPS_TIMER_0_CLOCK_FREQ_HZ 50000000
+#define XILINX_CLOCK_FREQ              50000000
 
 /******************************************************************/
 
