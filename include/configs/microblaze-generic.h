@@ -333,5 +333,5 @@
 # undef CONFIG_CMD_MII
 # undef CONFIG_PHYLIB
 #endif
-
+#define CONFIG_SYS_TEXT_BASE    0x44000000
 #endif	/* __CONFIG_H */

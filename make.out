@@ -1,0 +1,83 @@
+Configuring for microblaze-generic board...
+make
+make[1]: Entering directory `/home/ise/u-boot-xlnx'
+Generating include/autoconf.mk
+Generating include/autoconf.mk.dep
+make[1]: Leaving directory `/home/ise/u-boot-xlnx'
+make[1]: Entering directory `/home/ise/u-boot-xlnx'
+mb-gcc -DDO_DEPS_ONLY \
+		-g  -Os   -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x44000000 -I/home/ise/u-boot-xlnx/include -fno-builtin -ffreestanding -nostdinc -isystem /opt/Xilinx/14.7/ISE_DS/EDK/gnu/microblaze/lin/bin/../lib/gcc/microblaze-xilinx-elf/4.6.4/include -pipe  -ffixed-r31 -D__microblaze__ -Wall -Wstrict-prototypes -fno-stack-protector -Wno-format-nonliteral -Wno-format-security -fstack-usage   \
+		-o lib/asm-offsets.s lib/asm-offsets.c -c -S
+Generating include/generated/generic-asm-offsets.h
+tools/scripts/make-asm-offsets lib/asm-offsets.s include/generated/generic-asm-offsets.h
+if [ -f arch/microblaze/cpu//asm-offsets.c ];then \
+		mb-gcc -DDO_DEPS_ONLY \
+		-g  -Os   -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x44000000 -I/home/ise/u-boot-xlnx/include -fno-builtin -ffreestanding -nostdinc -isystem /opt/Xilinx/14.7/ISE_DS/EDK/gnu/microblaze/lin/bin/../lib/gcc/microblaze-xilinx-elf/4.6.4/include -pipe  -ffixed-r31 -D__microblaze__ -Wall -Wstrict-prototypes -fno-stack-protector -Wno-format-nonliteral -Wno-format-security -fstack-usage   \
+			-o arch/microblaze/cpu//asm-offsets.s arch/microblaze/cpu//asm-offsets.c -c -S; \
+	else \
+		touch arch/microblaze/cpu//asm-offsets.s; \
+	fi
+Generating include/generated/asm-offsets.h
+tools/scripts/make-asm-offsets arch/microblaze/cpu//asm-offsets.s include/generated/asm-offsets.h
+for dir in tools examples/standalone examples/api arch/microblaze/cpu /home/ise/u-boot-xlnx/arch/microblaze/cpu/ ; do \
+			make -C $dir _depend ; done
+make[2]: Entering directory `/home/ise/u-boot-xlnx/tools'
+make[2]: Nothing to be done for `_depend'.
+make[2]: Leaving directory `/home/ise/u-boot-xlnx/tools'
+make[2]: Entering directory `/home/ise/u-boot-xlnx/examples/standalone'
+make[2]: Nothing to be done for `_depend'.
+make[2]: Leaving directory `/home/ise/u-boot-xlnx/examples/standalone'
+make[2]: Entering directory `/home/ise/u-boot-xlnx/examples/api'
+make[2]: Nothing to be done for `_depend'.
+make[2]: Leaving directory `/home/ise/u-boot-xlnx/examples/api'
+make[2]: Entering directory `/home/ise/u-boot-xlnx/arch/microblaze/cpu'
+make[2]: Nothing to be done for `_depend'.
+make[2]: Leaving directory `/home/ise/u-boot-xlnx/arch/microblaze/cpu'
+make[2]: Entering directory `/home/ise/u-boot-xlnx/arch/microblaze/cpu'
+make[2]: Nothing to be done for `_depend'.
+make[2]: Leaving directory `/home/ise/u-boot-xlnx/arch/microblaze/cpu'
+make -C tools all
+make[2]: Entering directory `/home/ise/u-boot-xlnx/tools'
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic   -o img2srec.o img2srec.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic  -o img2srec img2srec.o
+strip img2srec
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic -c -o crc32.o /home/ise/u-boot-xlnx/lib/crc32.c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o mkenvimage.o mkenvimage.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o os_support.o os_support.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic  -o mkenvimage crc32.o mkenvimage.o os_support.o
+strip mkenvimage
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o aisimage.o aisimage.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o default_image.o default_image.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o fit_image.o fit_image.c -c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o image-fit.o /home/ise/u-boot-xlnx/common/image-fit.c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o image.o /home/ise/u-boot-xlnx/common/image.c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o image-host.o image-host.c -c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o image-sig.o /home/ise/u-boot-xlnx/common/image-sig.c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o imximage.o imximage.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o kwbimage.o kwbimage.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o pblimage.o pblimage.c -c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic -c -o md5.o /home/ise/u-boot-xlnx/lib/md5.c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o mkimage.o mkimage.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o omapimage.o omapimage.c -c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic -c -o sha1.o /home/ise/u-boot-xlnx/lib/sha1.c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o ublimage.o ublimage.c -c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o fdt.o /home/ise/u-boot-xlnx/lib/libfdt/fdt.c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o fdt_ro.o /home/ise/u-boot-xlnx/lib/libfdt/fdt_ro.c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o fdt_rw.o /home/ise/u-boot-xlnx/lib/libfdt/fdt_rw.c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o fdt_strerror.o /home/ise/u-boot-xlnx/lib/libfdt/fdt_strerror.c
+gcc -g -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -c -o fdt_wip.o /home/ise/u-boot-xlnx/lib/libfdt/fdt_wip.c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic  -o mkimage aisimage.o crc32.o default_image.o fit_image.o image-fit.o image.o image-host.o image-sig.o imximage.o kwbimage.o pblimage.o md5.o mkimage.o os_support.o omapimage.o sha1.o ublimage.o fdt.o fdt_ro.o fdt_rw.o fdt_strerror.o fdt_wip.o 
+strip mkimage
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES   -o proftool.o proftool.c -c
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -include /home/ise/u-boot-xlnx/include/libfdt_env.h -idirafter /home/ise/u-boot-xlnx/include -idirafter /home/ise/u-boot-xlnx/include2 -idirafter /home/ise/u-boot-xlnx/include -I /home/ise/u-boot-xlnx/lib/libfdt -I /home/ise/u-boot-xlnx/tools -DCONFIG_SYS_TEXT_BASE=0x44000000 -DUSE_HOSTCC -D__KERNEL_STRICT_NAMES -pedantic  -o proftool proftool.o
+strip proftool
+make[3]: Entering directory `/home/ise/u-boot-xlnx/tools/kernel-doc'
+gcc -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer  -pedantic  -o docproc docproc.c
+strip docproc
+make[3]: Leaving directory `/home/ise/u-boot-xlnx/tools/kernel-doc'
+make[2]: Leaving directory `/home/ise/u-boot-xlnx/tools'
+make -C arch/microblaze/cpu start.o
+make[2]: Entering directory `/home/ise/u-boot-xlnx/arch/microblaze/cpu'
+mb-gcc   -D__ASSEMBLY__ -g  -Os   -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x44000000 -I/home/ise/u-boot-xlnx/include -fno-builtin -ffreestanding -nostdinc -isystem /opt/Xilinx/14.7/ISE_DS/EDK/gnu/microblaze/lin/bin/../lib/gcc/microblaze-xilinx-elf/4.6.4/include -pipe  -ffixed-r31 -D__microblaze__   -o start.o start.S -c
+make[2]: Leaving directory `/home/ise/u-boot-xlnx/arch/microblaze/cpu'
+make[1]: Leaving directory `/home/ise/u-boot-xlnx'
