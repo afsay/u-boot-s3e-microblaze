@@ -132,6 +132,7 @@
 	#define	CONFIG_SYS_INTC_0_NUM		XILINX_INTC_NUM_INTR_INPUTS
 #endif
 
+
 /* timer */
 #ifdef XILINX_TIMER_BASEADDR
 	#if (XILINX_TIMER_IRQ != -1)
@@ -201,6 +202,7 @@
 
 	#define	CONFIG_ENV_ADDR		XILINX_FLASH_START
 	#define	CONFIG_ENV_SIZE		CONFIG_ENV_SECT_SIZE
+
 #else /* No flash memory at all */
 	/* ENV in RAM */
 	#define RAMENV
@@ -305,6 +307,12 @@
 #define	CONFIG_ETHADDR		00:0a:35:00:92:d4
 #define CONFIG_BOOTP_SERVERIP
 
+#define CONFIG_EXTRA_ENV_SETTINGS \
+	"stdin=ttyUL0\0" \
+	"stdout=ttyUL0\0" \
+	"stderr=ttyUL0\0"
+
+#define CONFIG_CMD_TIMER 1
 #define CONFIG_CMDLINE_EDITING
 
 /* Use the HUSH parser */
