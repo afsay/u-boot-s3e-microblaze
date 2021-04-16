@@ -114,7 +114,9 @@ _start:
 
 	addik	r6, r0, _interrupt_handler
 	sw	r6, r1, r0
-	lhu	r7, r1, r10
+	//lhu	r7, r1, r10
+	lw	r7, r1, r0
+	bsrli r7, r7, 16
 	rsubi	r8, r10, 0x12
 	sh	r7, r0, r8
 	rsubi	r8, r10, 0x16
@@ -126,7 +128,9 @@ _start:
 
 	addik	r6, r0, _hw_exception_handler
 	sw	r6, r1, r0
-	lhu	r7, r1, r10
+	//lhu	r7, r1, r10
+	lw	r7, r1, r0
+	bsrli r7, r7, 16
 	rsubi	r8, r10, 0x22
 	sh	r7, r0, r8
 	rsubi	r8, r10, 0x26
