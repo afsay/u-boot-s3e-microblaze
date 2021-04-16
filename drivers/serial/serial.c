@@ -282,23 +282,24 @@ void serial_initialize(void)
  */
 void serial_stdio_init(void)
 {
-	struct stdio_dev dev;
+	struct stdio_dev *dev = (struct stdio_dev *)malloc(sizeof(struct stdio_dev));
+	struct stdio_dev *tmp_dev = (struct stdio_dev *)malloc(sizeof(struct stdio_dev));
 	struct serial_device *s = serial_devices;
-
+	tmp_dev->flags = DEV_FLAGS_OUTPUT | DEV_FLAGS_INPUT;
 	while (s) {
-		memset(&dev, 0, sizeof(dev));
+		memset(dev, 0, sizeof(dev));
+		strcpy(tmp_dev->name, s->name);
+		strcpy(dev->name, s->name);
+		dev->flags = tmp_dev->flags;
 
-		strcpy(dev.name, s->name);
-		dev.flags = DEV_FLAGS_OUTPUT | DEV_FLAGS_INPUT;
+		dev->start = s->start;
+		dev->stop = s->stop;
+		dev->putc = s->putc;
+		dev->puts = s->puts;
+		dev->getc = s->getc;
+		dev->tstc = s->tstc;
 
-		dev.start = s->start;
-		dev.stop = s->stop;
-		dev.putc = s->putc;
-		dev.puts = s->puts;
-		dev.getc = s->getc;
-		dev.tstc = s->tstc;
-
-		stdio_register(&dev);
+		stdio_register(dev);
 
 		s = s->next;
 	}
