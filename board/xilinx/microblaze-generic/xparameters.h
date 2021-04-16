@@ -344,11 +344,13 @@
 /* Definitions for peripheral XPS_INTC_0 */
 #define XPAR_XPS_INTC_0_DEVICE_ID 0
 #define XPAR_XPS_INTC_0_BASEADDR 0x81800000
+#define XILINX_INTC_BASEADDR     0x81800000
 #define XPAR_XPS_INTC_0_HIGHADDR 0x8180FFFF
 #define XPAR_XPS_INTC_0_KIND_OF_INTR 0xFFFFFFF3
 #define XPAR_XPS_INTC_0_HAS_FAST 0
 #define XPAR_XPS_INTC_0_IVAR_RESET_VALUE 0
 #define XPAR_XPS_INTC_0_NUM_INTR_INPUTS 5
+#define XILINX_INTC_NUM_INTR_INPUTS     5
 
 
 /******************************************************************/
@@ -367,6 +369,7 @@
 #define XPAR_XPS_INTC_0_DIP_SWITCHES_4BIT_IP2INTC_IRPT_INTR 3
 #define XPAR_RS232_DCE_INTERRUPT_MASK 0X000010
 #define XPAR_XPS_INTC_0_RS232_DCE_INTERRUPT_INTR 4
+#define XILINX_TIMER_IRQ                           0
 
 
 /******************************************************************/
