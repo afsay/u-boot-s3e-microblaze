@@ -100,3 +100,15 @@ ulong get_tbclk(void)
 {
 	return CONFIG_SYS_HZ;
 }
+
+int do_timercounter(cmd_tbl_t *cmdtp, int flag, int argc, const char *argv[])
+{
+	//tmr->loadreg = XILINX_CLOCK_FREQ / CONFIG_SYS_HZ;
+	//tmr->control = TIMER_INTERRUPT | TIMER_RESET;
+	//tmr->loadreg = 500000000;
+	//tmr->control = tmr->control;
+	tmr->control = tmr->control | TIMER_RESET;
+	tmr->control = tmr->control & ~TIMER_RESET;
+
+	return 0;
+}

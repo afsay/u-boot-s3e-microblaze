@@ -54,3 +54,12 @@ U_BOOT_CMD(
 	"print information about IRQs",
 	""
 );
+
+/* Implemented in $(CPU)/timer.c */
+int do_timercounter (cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[]);
+
+U_BOOT_CMD(
+	timercounter,    2,    1,     do_timercounter,
+	"Do operation on timer status and control registers",
+	"[n]"
+);
