@@ -2,6 +2,12 @@ This is a custom u-boot version to experiment with spartan 3e starter kit.
 
 This branch is using from https://github.com/xilinx/u-boot-xlnx tag xilinx-v14.7 as reference.
 
+Please install Xilinx ISE/EDK 14.7 to create FPGA configuration. Installing Xilinx ISE/EDK will also provide GNU compiler collection for microblaze target.
+
+After cloning this repository you can compile u-boot with:
+
+$make microblaze-generic
+
 Currently spartan 3e start kit can boot from u-boot without problem:
 
 Serial device IO via UART, Interrupt handler, Timer initialization, GPIO access(accessing buttons and LEDs) are working.
@@ -10,3 +16,28 @@ Work in Progress:
 	Ethernet needs testing.
 	Flash memory access need further debugging.
 	
+HOW TO RUN U-BOOT
+
+Use Xilinx EDK 14.7 to create following microblaze platform:
+
+1. New project with PLB interconnect
+2. Select Spartan 3E Starter Board Rev-D
+3. Single processor system
+4. Microblaze 50Mhz with 16Kb local memory
+5. Peripheral configuration
+	5.1 Add xps_timer peripheral, make sure to enable user interrupt.
+	5.2 Select RS232_DCE, select baudrate to 115200, enable interupt.
+6. Enable instruction and data caches with 2kb with DDR_SDRAM option
+
+If you want to customize your system:
+	After creating the platform export design to SDK. Within SDK create new board support package for the platform. This will create a new xparameters.h. You will need to modify xparameters.h for some defined values to be understood by u-boot. Please refer to board/xilinx/microblaze-generic/xparameters.h file to example modifications.
+
+Connect RS232 DCE port of spartan 3e board to your PC via USB to serial converter and open a terminal program such as  minicom in Linux and make sure to set baudrate to 115200.
+After programming Spartan 3E FPGA with system's bit file, microblaze can be accessed via XMD console and u-boot binary can be loaded into SDRAM with following commands:
+
+XMD% connect mb mdm
+XMD% dow -data /parth_to_u-boot.bin 0x44000000
+XMD% con 0x44000000
+
+After running con command, u-boot boot messages will appear in the terminal screen.
+
