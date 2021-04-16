@@ -71,6 +71,7 @@ int timer_init (void)
 	if (tmr && preload && irq >= 0) {
 		tmr->loadreg = preload;
 		tmr->control = TIMER_INTERRUPT | TIMER_RESET;
+		tmr->control = tmr->control & ~TIMER_RESET; // TIMER_RESET must be 0 for TIMER_RELOAD work properly
 		tmr->control = TIMER_ENABLE | TIMER_ENABLE_INTR |\
 					TIMER_RELOAD | TIMER_DOWN_COUNT;
 		timestamp = 0;
